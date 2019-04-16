@@ -1,0 +1,22 @@
+clc
+close all
+clear
+RGB=imread('testimg.jpg');
+X=rgb2gray(RGB);
+imwrite(X,'testgray.jpg','JPG');
+subplot(2,2,1),
+subimage(RGB);
+title('原始图像');
+subplot(2,2,2),
+subimage(X);
+title('灰度图像');
+X2=im2bw(X,0.6);
+imwrite(X2,'testbw.png','PNG');
+subplot(2,2,3),
+subimage(X2);
+title('二值图像');
+Y=grayslice(X,8);
+imwrite(Y,'testind.tif','TIFF');
+subplot(2,2,4);
+subimage(Y,jet(8));
+title('索引图像');
